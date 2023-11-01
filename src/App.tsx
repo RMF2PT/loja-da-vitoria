@@ -1,34 +1,54 @@
 import { MouseEvent, useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
-import Artigos from "./components/Artigos";
-import Contactos from "./components/Contactos";
+import Products from "./components/Products";
+import Contacts from "./components/Contacts";
 
 function App() {
+  const API_URL = "http://localhost:3500/products";
+
   const [products, setProducts] = useState([]);
-  const [view, setView] = useState("home");
+  const [view, setView] = useState("início");
+  const [isLoading, setIsLoading] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
   const handleView = (e: MouseEvent<HTMLLIElement>) => {
     const target = e.target as HTMLElement;
-    console.log(target.innerText);
     setView(target.innerText.toLowerCase());
   };
 
   useEffect(() => {
-    fetch("http://localhost:3001/products")
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw Error("Failed to load database");
+        const data = await res.json();
         setProducts(data);
-      });
-  }
+        setFetchError(null);
+      } catch (error) {
+        if (error instanceof Error) setFetchError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    setTimeout(() => {
+      fetchProducts();
+    }, 2000);
+  }, []);
 
   return (
     <>
       <Nav handleView={handleView} />
       <main>
         {view === "início" && <Home />}
-        {view === "artigos" && <Artigos />}
-        {view === "contactos" && <Contactos />}
+        {view === "artigos" && (
+          <Products
+            products={products}
+            isLoading={isLoading}
+            fetchError={fetchError}
+          />
+        )}
+        {view === "contactos" && <Contacts />}
       </main>
     </>
   );
