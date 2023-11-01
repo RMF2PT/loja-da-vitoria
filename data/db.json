@@ -1,0 +1,25 @@
+{
+  "artigos": [
+    {
+      "id": 1,
+      "nome": "Kit Kat",
+      "preco": 2.0,
+      "descricao": "Chocolate",
+      "imagem": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT5ByAQYhotky_X4y6etuqQwjn-jM4-dIEyztDjP5Z9yqtlXEQQ4WlWpVZp6idRwqOwz5LiKXpSfhJnn-UJFJKtg42lQJl8YV3LKo3zvXtr9rgGb1si2zDhKYnZ41OsEg&usqp=CAc"
+    },
+    {
+      "id": 2,
+      "nome": "Kinder Chocolate",
+      "preco": 10.0,
+      "descricao": "Chocolate",
+      "imagem": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS1ghxQdwNIDfmUpHiYMleADN4LloHFN_VDg-uI2sgucRu8ZzT6w5w8Qw_MF-dmGsCi8sKBZMsjaDqSyhr6ZVRXz5Z5mWarYB9MjssD4-ozYGI1afVNSDz4sU6UinRTRmpTeNMldlam3Q&usqp=CAc"
+    },
+    {
+      "id": 3,
+      "nome": "Milka Chocolate",
+      "preco": 20.0,
+      "descricao": "Chocolate",
+      "imagem": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT5jkoOyYOO0a_FIIKSR-3tLNImwFzIze0WovUbWudh4S9Pe8uJ067W0yzojSq5TZo1nB-aYMleQLsjMgPUYuyDEZU1zaG6FU-D-ggrs3U7IUsPBBB9H-jUbPEDttM&usqp=CAc"
+    }
+  ]
+}
